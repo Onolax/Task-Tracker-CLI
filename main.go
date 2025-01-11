@@ -51,9 +51,10 @@ func main() {
 		case "mark":
 			UpdateTaskStatus(os.Args[2], os.Args[3])
 			return
+		case "help":
+			displayHelp()
 		default:
-			fmt.Println("unknown command")
-			return
+			fmt.Println("Unknown command. Use 'help' to see available commands.")
 		}
 	}
 

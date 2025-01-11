@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"math/rand"
 	"os"
@@ -60,4 +61,17 @@ func WriteTask(tasks []Task) error {
 		return err
 	}
 	return os.WriteFile("tasks.json", data, 0644)
+}
+
+func displayHelp() {
+	fmt.Println("Available Commands:")
+	fmt.Println("  add <description>          - Add a new task with the given description")
+	fmt.Println("  list                       - List all tasks")
+	fmt.Println("  list-not-done              - List tasks with status 'Not Done'")
+	fmt.Println("  list-in-progress           - List tasks with status 'In Progress'")
+	fmt.Println("  list-done                  - List tasks with status 'Done'")
+	fmt.Println("  delete <task_id>           - Delete a task by its ID")
+	fmt.Println("  update <task_id> <desc>    - Update the description of a task")
+	fmt.Println("  mark <task_id> <status>    - Update the status of a task (e.g., 'Not Done', 'In Progress', 'Done')")
+	fmt.Println("  help                       - Display this help message")
 }
